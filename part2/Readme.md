@@ -1,14 +1,8 @@
-#Os dev part 1
+# Os dev part 2
 
-Welcome to make your first os
+Include:
+     filesystem (all)
+     ram support(to make initrd image run: ``` sudo mkinitramfs -o targets/x86_64/iso/boot/grub/initrd.img```
 
-Download this template and make the cross-compiler and add it to $PATH variable
-Then run ```make``` and ```make build-x86_64```
-
-This episode includes :
-1. A file system
-2. VGA support(a little bit)
-
-
-   That's all. Se ya'll next episode
-   
+That's all.
+     
