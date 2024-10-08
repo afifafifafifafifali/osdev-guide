@@ -1,0 +1,82 @@
+make -C kernel
+make[1]: Entering directory '/home/kali/Desktop/osdev-guide-main/part4/kernel'
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c process/task.c -o process/task.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c gdt.c -o gdt.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c sys/io.c -o sys/io.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c filesystem/simplefs.c -o filesystem/simplefs.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c filesystem/file.c -o filesystem/file.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c filesystem/initrd.c -o filesystem/initrd.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c kernel.c -o kernel.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c interrupts/idt.c -o interrupts/idt.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c interrupts/isr.c -o interrupts/isr.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c memory/pmm.c -o memory/pmm.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c memory/heap.c -o memory/heap.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c memory/paging.c -o memory/paging.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c interfaces/acpi.c -o interfaces/acpi.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c interfaces/description_tables/madt.c -o interfaces/description_tables/madt.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c interfaces/description_tables/fadt.c -o interfaces/description_tables/fadt.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c lib/print.c -o lib/print.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c lib/stdlib.c -o lib/stdlib.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c lib/string.c -o lib/string.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c devices/apic.c -o devices/apic.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c devices/ps2_keyboard.c -o devices/ps2_keyboard.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c devices/ps2.c -o devices/ps2.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c devices/ahci.c -o devices/ahci.o
+devices/ahci.c: In function ‘runCommand’:
+devices/ahci.c:178:32: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   cmd_tbl->prdt_entry[i].dba = (uint32_t) buf;
+                                ^
+devices/ahci.c:188:31: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  cmd_tbl->prdt_entry[i].dba = (uint32_t) buf;
+                               ^
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c devices/pci.c -o devices/pci.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c devices/pit.c -o devices/pit.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c devices/ioapic.c -o devices/ioapic.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c devices/pic.c -o devices/pic.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c devices/serial.c -o devices/serial.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c shell/fb.c -o shell/fb.o
+/usr/local/cross-compiler/bin/x86_64-elf-gcc -std=gnu11 -ffreestanding -fno-stack-protector -fno-stack-check -fno-lto -fno-pie -fno-pic -m64 -march=x86-64 -mabi=sysv -mno-80387 -mno-mmx -mno-sse -mno-sse2 -mno-red-zone -mcmodel=kernel -g  -c shell/e9printf.c -o shell/e9printf.o
+nasm -F dwarf -g -f elf64 process/switch.asm -o process/switch.o
+nasm -F dwarf -g -f elf64 interrupts/interrupt.asm -o interrupts/interrupt.o
+sudo /usr/local/cross-compiler/bin/x86_64-elf-ld ./process/task.o ./gdt.o ./sys/io.o ./filesystem/simplefs.o ./filesystem/file.o ./filesystem/initrd.o ./kernel.o ./interrupts/idt.o ./interrupts/isr.o ./memory/pmm.o ./memory/heap.o ./memory/paging.o ./interfaces/acpi.o ./interfaces/description_tables/madt.o ./interfaces/description_tables/fadt.o ./lib/print.o ./lib/stdlib.o ./lib/string.o ./devices/apic.o ./devices/ps2_keyboard.o ./devices/ps2.o ./devices/ahci.o ./devices/pci.o ./devices/pit.o ./devices/ioapic.o ./devices/pic.o ./devices/serial.o ./shell/fb.o ./shell/e9printf.o  ./process/switch.o ./interrupts/interrupt.o -nostdlib -static -z max-page-size=0x1000 -T linker.ld -o kernel.elf
+make[1]: Leaving directory '/home/kali/Desktop/osdev-guide-main/part4/kernel'
+rm -rf iso_root
+mkdir -p iso_root
+cp kernel/kernel.elf \
+	limine.cfg limine/limine.sys limine/limine-cd.bin limine/limine-cd-efi.bin initrd.img iso_root/
+xorriso -as mkisofs -b limine-cd.bin \
+	-no-emul-boot -boot-load-size 4 -boot-info-table \
+	--efi-boot limine-cd-efi.bin \
+	-efi-boot-part --efi-boot-image --protective-msdos-label \
+	iso_root -o shitos.iso
+xorriso 1.5.6 : RockRidge filesystem manipulator, libburnia project.
+
+Drive current: -outdev 'stdio:shitos.iso'
+Media current: stdio file, overwriteable
+Media status : is blank
+Media summary: 0 sessions, 0 data blocks, 0 data, 56.3g free
+Added to ISO image: directory '/'='/home/kali/Desktop/osdev-guide-main/part4/iso_root'
+xorriso : UPDATE :       6 files added in 1 seconds
+xorriso : UPDATE :       6 files added in 1 seconds
+xorriso : WARNING : EFI boot equipment is provided but no directory /EFI/BOOT
+xorriso : WARNING : will emerge in the ISO filesystem. A popular method to
+xorriso : WARNING : prepare a USB stick on MS-Windows relies on having in the
+xorriso : WARNING : ISO filesystem a copy of the EFI System Partition tree.
+xorriso : UPDATE :  1.47% done
+ISO image produced: 1092 sectors
+Written to medium : 1092 sectors at LBA 0
+Writing to 'stdio:shitos.iso' completed successfully.
+
+limine/limine-deploy shitos.iso
+Physical block size of 512 bytes.
+Deploying to GPT. Logical block size of 512 bytes.
+Secondary header at LBA 0x110f.
+Secondary header valid.
+GPT partition NOT specified. Attempting GPT embedding.
+New maximum count of partition entries: 44.
+Stage 2 to be located at 0x1a00 and 0x21b800.
+Reminder: Remember to copy the limine.sys file in either
+          the root, /boot, /limine, or /boot/limine directories of
+          one of the partitions on the device, or boot will fail!
+Limine deployed successfully!
+rm -rf iso_root
