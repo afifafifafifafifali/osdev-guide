@@ -68,7 +68,8 @@ struct limine_memmap_response* memmap_info;
 
 extern fs_node_t* fs_root;
 extern initrd_header_t* initrd_header;
-
+static uint64_t cols;
+static uint64_t rows;
 extern void term_write(const char *string, size_t length) {
     terminal_request.response->write(main_terminal, string, length);
 }
@@ -76,6 +77,22 @@ extern void term_write(const char *string, size_t length) {
 void flushFrmbuffer(void) {
     asm volatile("" ::: "memory");
 }
+
+void clear_Txt(void) {
+    char *space_line = "                                                                                ";  // 80 spaces
+    for(size_t raw = 0; raw<cols; raw++) {
+        term_write(space_line, rows);
+    }
+    term_write("\033[H", 3); 
+}
+
+extern void term_clear(void) {
+    fb_clear(0x000000);
+    flushFrmbuffer(); // pllllspplg troung just sone useless txt :d
+    clear_TxT();
+
+}
+
 // Kernel entrypoint
 void _start(void) {
     // set up terminal
@@ -83,9 +100,9 @@ void _start(void) {
     fb_init();
     // Access RSDP for ACPI
 
-    uint64_t cols = main_terminal->columns;
-    uint64_t rows = main_terminal->rows;
-    uint64_t results = cols * rows;
+   cols = main_terminal->columns;
+   rows = main_terminal->rows;
+   
     rsdp_descriptor = (RSDPDescriptor20*) rsdp_request.response->address; 
     if (rsdp_descriptor->descriptor10.revision == 2) 
     {
@@ -248,15 +265,6 @@ void _start(void) {
 // At this point, the entire screen is black, and all text or content is removed.
 
 
-
-
-
-
-// Get a pointer to the framebuffer's address.
-
-
-    fb_clear(0x000000);
-    flushFrmbuffer();
     doIt();
 
     for (;;) 
