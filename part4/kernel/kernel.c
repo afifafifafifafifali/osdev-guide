@@ -74,11 +74,12 @@ extern void term_write(const char *string, size_t length) {
     terminal_request.response->write(main_terminal, string, length);
 }
 
+/*
 void flushFrmbuffer(void) {
     asm volatile("" ::: "memory");
-}
+}*/  //very very very toxic function
 
-void clear_Txt(void) {
+void clear_TxT(void) {
     char *space_line = "                                                                                ";  // 80 spaces
     for(size_t raw = 0; raw<cols; raw++) {
         term_write(space_line, rows);
@@ -88,7 +89,7 @@ void clear_Txt(void) {
 
 extern void term_clear(void) {
     fb_clear(0x000000);
-    flushFrmbuffer(); // pllllspplg troung just sone useless txt :d
+ // pllllspplg troung just sone useless txt :d
     clear_TxT();
 
 }
@@ -251,18 +252,10 @@ void _start(void) {
     
     enableAPIC();
     enableAPICTimer(10);
+	term_clear();
 	enableKeyboard(ioapics[0]->address);
 	initTasking();
-  // Fetch the first framebuffer.
-// Fetch the first framebuffer.
 
-
-// Note: we assume the framebuffer model is RGB with 32-bit pixels.
-
-
-// Clear the screen by filling it with black.
-
-// At this point, the entire screen is black, and all text or content is removed.
 
 
     doIt();
